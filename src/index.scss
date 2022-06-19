@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$fs_min: 12;
+$fs_max: 24;
+$w_min: 240;
+$w_max: 1920;
+
+html {
+  font-size: calc(
+    #{$fs_min}px + clamp(0px, (100vw - #{$w_min}px) / #{$w_max - $w_min}, 1px) *
+      #{$fs_max - $fs_min}
+  );
+}
+html,
+body,
+#root {
+  @apply h-full overflow-hidden;
+}
